@@ -1,18 +1,16 @@
-
+from config import *
 import requests
 import urlopen
 from firebase import firebase
 
 
-# put your keys in the header
-headers = {
-    "Content-Type": "application/json",
-    "app_id": "15fd50b7",
-    "app_key": "bdaf7ffa5e41f3fa8159286192368710"
-}
-#Switch url for what you are doing (Enroll, verify etc)
+# put your keys in the config.py
+
+
+# Switch url for what you are doing (Enroll, verify etc)
 url = "http://api.kairos.com/enroll"
-firebase = firebase.FirebaseApplication('https://autoshop-205c2.firebaseio.com/', None)
+firebase = firebase.FirebaseApplication(
+    'https://autoshop-205c2.firebaseio.com/', None)
 
 payload = """
   {
@@ -30,4 +28,3 @@ print(request.content)
 
 result = firebase.post('/users2', requestq, params={'print': 'pretty'})
 print(result)
-

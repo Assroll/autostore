@@ -1,15 +1,11 @@
-
+from config import *
 import requests
 import urlopen
 
 
-# put your keys in the header
-headers = {
-    "Content-Type": "application/json",
-    "app_id": "15fd50b7",
-    "app_key": "bdaf7ffa5e41f3fa8159286192368710"
-}
-#Switch url for what you are doing (Enroll, verify etc)
+# put your keys in the header config.py
+
+# Switch url for what you are doing (Enroll, verify etc)
 url = "http://api.kairos.com/verify"
 
 
@@ -24,4 +20,3 @@ payload = """
 request = requests.post(url, data=payload, headers=headers)
 
 print(request.content)
-
