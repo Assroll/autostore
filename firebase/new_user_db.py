@@ -1,16 +1,13 @@
+# Make a new user inn Firebase
 from config import *
 import requests
 import urlopen
+import json
 from firebase import firebase
 
 
-# put your keys in the config.py
-
-
-# Switch url for what you are doing (Enroll, verify etc)
 url = "http://api.kairos.com/enroll"
-firebase = firebase.FirebaseApplication(
-    'https://autoshop-205c2.firebaseio.com/', None)
+firebase = firebase.FirebaseApplication(fbase, None)
 
 payload = """
   {
@@ -20,11 +17,8 @@ payload = """
   }
 """
 
-
 request = requests.post(url, data=payload, headers=headers)
+request.json()
 
-requestq = print(request.content)
-print(request.content)
-
-result = firebase.post('/users2', requestq, params={'print': 'pretty'})
+result = firebase.post('/users2', request.json())
 print(result)

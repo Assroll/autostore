@@ -1,7 +1,7 @@
 from config import *
 import requests
 import urlopen
-
+import json
 
 # put your keys in the header config.py
 
@@ -19,4 +19,4 @@ payload = """
 
 request = requests.post(url, data=payload, headers=headers)
 
-print(request.content)
+print(request.json())
